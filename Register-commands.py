@@ -9,7 +9,7 @@ with open("discord_commands.yaml", "r") as file:
         yaml_content = file.read()
 
 commands = yaml.safe_load(yaml_content)
-headers = {"Authorization" : f"Bot {token}" "Content-Type" : "application/json"}
+headers = {"Authorization" : f"Bot {token}", "Content-Type" : "application/json"}
 
 for command in commands:
     response = requests.post(url, json=command, headers=headers)
