@@ -18,6 +18,7 @@ survival= ["Anti-Smog Breathing Mask (20eb)", "Auto Level Dampening Ear Protecto
 token = os.getenv("token")
 new_line = '\n'
 MY_GUILD = discord.Object(id=1191987404853215262)  # replace with your guild id
+THEIR_GUILD = discord.Object(id=611115334971162624) 
 
 
 class MyClient(discord.Client):
@@ -39,6 +40,8 @@ class MyClient(discord.Client):
         # This copies the global commands over to your guild.
         self.tree.copy_global_to(guild=MY_GUILD)
         await self.tree.sync(guild=MY_GUILD)
+        self.tree.copy_global_to(guild=THEIR_GUILD)
+        await self.tree.sync(guild=THEIR_GUILD)
 
 
 intents = discord.Intents.default()
