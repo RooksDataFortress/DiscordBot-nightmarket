@@ -1,4 +1,5 @@
 #! python
+import time
 import sys
 import random
 sys.stdout.write("Good evening shoppers, its time for the night market! Get your eddies ready because this stock wont last! \n")
@@ -10,6 +11,12 @@ cyberware = ["Cybereye (100eb)", "Cyberaudio Suite (500eb)", "Neural Link (500eb
 clothing = ["Bag Lady Chic", "Gang Colors", "Generic Chic", "Bohemian", "Leisurewear ", "Nomad Leathers", "Asia Pop", "Urban Flash", "Businesswear", "High Fashion", "Biomonitor (100eb)", "Chemskin (100eb)", "EMP Threading (10eb)", "Light Tattoo (100eb)", "Shift Tacts (100eb)", "Skinwatch (100eb)", "Techhair (100eb)", "Generic Chic", "Leisurewear", "Gang Colors"]
 survival= ["Anti-Smog Breathing Mask (20eb)", "Auto Level Dampening Ear Protectors (1,000eb)", "Binoculars (50eb) ", "Carryall (20eb)", "Flashlight (20eb)", "Duct Tape (20eb)", "Inflatable Bed & Sleep-bag (20eb)", "Lock Picking Set (20eb)", "Handcuffs (50eb) ", "Medtech Bag (100eb)", "Tent and Camping Equipment (50eb) ", "Rope (60m/yds) (20eb)", "Techtool (100eb)", "Personal CarePak (20eb)", "Radiation Suit (1,000eb)", "Road Flare (10eb)", "Grapple Gun (100eb)", "Tech Bag (500eb)", "Shovel or Axe (50eb) ", "Airhypo (50eb) "]
 stocktypes = tuple(random.sample(categories, 2))
+
+currenttime = int(time.time()) 
+dealtime = currenttime + 172800
+print (dealtime)
+print ("<t:",dealtime,">")
+
 for n in stocktypes:
     if n == "Food and drugs":
         goods = foods
@@ -25,7 +32,8 @@ for n in stocktypes:
         goods = survival
     else: print ("error: goods cannot be found, sorry.[this is a bug in the code]")
     count = random.choice([1, 2, 3, 4, 5, 6, 7 ,8, 9, 10])
-    print("\nWe have", count, "offerings of", n,":")
     inv = tuple(random.sample(goods, count))
-    for x in inv :
-        print (x)   
+    print("\nWe have", count, "offerings of", n,":", "\n > * ", "\n > * ".join(str(x) for x in inv))
+#    print ("\n".join(str(el) for el in inv))
+    #for x in inv :
+        #print (x)  

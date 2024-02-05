@@ -1,5 +1,0 @@
-- name: hello
-  description: Say Hello!
-
-- name: market
-  description: Generate a night market
