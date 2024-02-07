@@ -8,9 +8,9 @@ import random
 #Section three being ????
 
 preamble = ["My sources indicate", "A little birdie told me", "Don't be surprised when it goes public that", "Now you didn't hear it from me but", "This just in", "Its time you wake up to the truth that", "Just klepped some data and it strongly suggests"]
-cata = ["Pick-a-corp", "a local Senator", "the Mayor", "an alliance of corporations", "the Night City Local Council", "an unnamed Cyberpsycho", "the recent notorious serial Killer", "the NCPD", "some anonymous Fixer", "rich investors"]
-catb = ["Offers", "Threatens", "Compromises", "Murders", "Killed", "Dies", "Praises", "Announces", "Reveals", "Continues"]
-catc = ["Corporations", "City", "Compromise", "Warning", "Plan", "Scandal", "Woman", "Man", "Accident", "Hope"]
+cata = ["Pick-a-corp", "a local Senator", "the Mayor", "a gang of corpos", "the Night City Local Council", "an unnamed Cyberpsycho", "a recent suspected serial killer", "the NCPD", "some anonymous Fixer", "a gang of rich investors"]
+catb = ["is negotiating an offer with", "is threatening", "is making a compromise", "murdered", "killed", "died", "is praising", "is about to make an announcement about", "have been revealed", "wont stop"]
+catc = ["the Corporations.", "The city", "a compromise.", "Warning", "Plan", "Scandal", "Woman", "Man", "Accident", "Hope"]
 closing = ["You gonna let them get away with that?", "I'll be dead in the ground before I let that happen.", "Just think about what that means for us!", "Then again, Maybe thats just what they want you to think?", "Sounds to me like it is all part of a bigger picture.", "I'm not too sure if this source is realiable though.", "I'd Love to see Network54 get the guts to run that story."]
 
 
