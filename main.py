@@ -7,6 +7,7 @@ import random
 import time
 from news import preamble, cata, catb, catc, closing, corps, gangs, areas, plans, accidents, mysteries
 from markets import categories, foods, electronics, combatgear, cyberware, clothing, survival
+from criticalinjuries import *
 
 token = os.getenv("token")
 new_line = '\n'
@@ -135,9 +136,31 @@ async def news(interaction: discord.Interaction):
 # To make an argument optional, you can either give it a supported default argument
 # or you can mark it as Optional from the typing standard library. This example does both.
 
-#@client.tree.command()
-#@app_commands.describe(member='The member you want to get the joined date from; defaults to the user who uses the command')
-#async def joined(interaction: discord.Interaction, member: Optional[discord.Member] = None):
+@client.tree.command()
+@app_commands.describe(location='Where did you get hit choom?!')
+@app_commands.choices(location=[
+    app_commands.Choice(name="Head", value="Head"),
+    app_commands.Choice(name="Body", value="Body"),
+    ])
+async def crit(interaction: discord.Interaction, location: app_commands.Choice[str]):
+    injuryembed_title = "Oh shit, you got fucked the hell up!"
+    injuryembed_colour = 0xffec00 
+    injury_lists = {'b2': b2, 'b3': b3, 'b4': b4, 'b5': b5, 'b6': b6, 'b7': b7, 'b8': b8, 'b9': b9, 'b10': b10, 'b11': b11, 'b12': b12, 'h2': h2, 'h3': h3, 'h4': h4, 'h5': h5, 'h6': h6, 'h7': h7, 'h8': h8, 'h9': h9, 'h10': h10, 'h11': h11, 'h12': h12}
+    roll = (random.randint(1, 6))+(random.randint(1, 6))
+    if location.value == "Head":
+        letter = 'h'
+    elif location.value == "Body":
+        letter = 'b'
+
+    injury = letter + str(roll)
+    injury_list = injury_lists.get(injury)
+    injuryembed = discord.Embed(color=injuryembed_colour, title=injuryembed_title, description=f'')
+    injuryembed.add_field(name="Injury" , value=injury_list[0], inline=True)
+    injuryembed.add_field(name="Effect" , value=injury_list[1], inline=False)
+    injuryembed.add_field(name="Quick-Fix" , value=injury_list[2], inline=True)
+    injuryembed.add_field(name="Treatment" , value=injury_list[3], inline=True)
+    await interaction.response.send_message(embed=injuryembed)
+
 #    """Says when a member joined."""
 #    # If no member is explicitly provided then we use the command user here
 #    member = member or interaction.user
