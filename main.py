@@ -143,7 +143,7 @@ async def news(interaction: discord.Interaction):
     app_commands.Choice(name="Body", value="Body"),
     ])
 async def crit(interaction: discord.Interaction, location: app_commands.Choice[str]):
-    injuryembed_title = "Oh shit, you got fucked the hell up!"
+    injuryembed_title = "Oh no, they got you good this time choom!"
     injuryembed_colour = 0xffec00 
     injury_lists = {'b2': b2, 'b3': b3, 'b4': b4, 'b5': b5, 'b6': b6, 'b7': b7, 'b8': b8, 'b9': b9, 'b10': b10, 'b11': b11, 'b12': b12, 'h2': h2, 'h3': h3, 'h4': h4, 'h5': h5, 'h6': h6, 'h7': h7, 'h8': h8, 'h9': h9, 'h10': h10, 'h11': h11, 'h12': h12}
     roll = (random.randint(1, 6))+(random.randint(1, 6))
