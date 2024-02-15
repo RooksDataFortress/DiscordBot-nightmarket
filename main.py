@@ -71,11 +71,12 @@ async def nightmarket(interaction: discord.Interaction):
         else: print ("error: goods cannot be found, sorry.[this is a bug in the code]")
         count = random.choice([1, 2, 3, 4, 5, 6, 7 ,8, 9, 10])
         inv = tuple(random.sample(goods, count))
-        shoptitle = f'**__We have {count} Offering(s) of  {n}:__**'
-        marketembed.add_field(name=shoptitle, value="", inline=False)
+        stocks = ""
         for x in inv:
-            y = f'- {x}'
-            marketembed.add_field(name=y , value="", inline=False)
+            stocks = (stocks + f'- {x}{new_line}')  
+        shoptitle = f'**__We have {count} Offering(s) of  {n}:__**'
+        marketembed.add_field(name=shoptitle, value=stocks, inline=True)
+
     await interaction.response.send_message(embed=marketembed)
 
 @client.tree.command()
