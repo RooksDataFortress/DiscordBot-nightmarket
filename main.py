@@ -1,5 +1,5 @@
 from typing import Optional
-import os
+from dotenv import load_dotenv
 import discord
 from discord import app_commands
 import sys
@@ -9,11 +9,10 @@ from news import preamble, cata, catb, catc, closing, corps, gangs, areas, plans
 from markets import categories, foods, electronics, combatgear, cyberware, clothing, survival
 from criticalinjuries import *
 
-token = os.getenv("token")
+import dotenv
+token = dotenv.get_key('.env', 'token')
 new_line = '\n'
-MY_GUILD = discord.Object(id=1191987404853215262)  # replace with your guild id
-THEIR_GUILD = discord.Object(id=611115334971162624) 
-
+MY_GUILD = discord.Object(id=1011895094070235167)  # my test server
 
 class MyClient(discord.Client):
     def __init__(self, *, intents: discord.Intents):
@@ -34,9 +33,6 @@ class MyClient(discord.Client):
         # This copies the global commands over to your guild.
         self.tree.copy_global_to(guild=MY_GUILD)
         await self.tree.sync(guild=MY_GUILD)
-        self.tree.copy_global_to(guild=THEIR_GUILD)
-        await self.tree.sync(guild=THEIR_GUILD)
-
 
 intents = discord.Intents.default()
 client = MyClient(intents=intents)
@@ -129,9 +125,9 @@ async def news(interaction: discord.Interaction):
 
     print("The News is")
     print(intro, newsa, newsb, newsc, outro)
-    news_embed_title = f'{intro} {newsa} {newsb} {newsc} {outro}'
-    MAIN_COLOR = 0xffec00 
-    newsembed = discord.Embed(color=MAIN_COLOR, title=news_embed_title, description=f'')
+    news_embed_body = f'{intro} {newsa} {newsb} {newsc} {outro}'
+    MAIN_COLOR = 0xffec00
+    newsembed = discord.Embed(color=MAIN_COLOR, title="Breaking news", description=news_embed_body)
     await interaction.response.send_message(embed=newsembed)
 
 # To make an argument optional, you can either give it a supported default argument
